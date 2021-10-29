@@ -19,27 +19,16 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore src/Avalonia.FuncUI.sln
     - name: Build
-      run: dotnet build src/Avalonia.FuncUI.sln --no-restore
+      run: dotnet build src/Avalonia.FuncUI.sln --no-restore -c Release
     - name: Test
       run: dotnet test src/Avalonia.FuncUI.sln --no-build --verbosity normal
-    - name: Publish Avalonia.FuncUI
-      uses: rohith/publish-nuget@v2
-      with:
-          PROJECT_FILE_PATH: src/Avalonia.FuncUI/Avalonia.FuncUI.fsproj
-          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
-          NUGET_SOURCE: https://nuget.pkg.github.com/marklam
-          INCLUDE_SYMBOLS: true
-    - name: Publish Avalonia.FuncUI.DSL
-      uses: rohith/publish-nuget@v2
-      with:
-          PROJECT_FILE_PATH: src/Avalonia.FuncUI.DSL/Avalonia.FuncUI.DSL.fsproj
-          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
-          NUGET_SOURCE: https://nuget.pkg.github.com/marklam
-          INCLUDE_SYMBOLS: true
-    - name: Publish Avalonia.FuncUI.Elmish
-      uses: rohith/publish-nuget@v2
-      with:
-          PROJECT_FILE_PATH: src/Avalonia.FuncUI.Elmish/Avalonia.FuncUI.Elmish.fsproj
-          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
-          NUGET_SOURCE: https://nuget.pkg.github.com/marklam
-          INCLUDE_SYMBOLS: true
+    - name: Pack
+      run: dotnet pack src/Avalonia.FuncUI.sln -c Release
+    - name: Prep packages
+      run: dotnet nuget add source --username marklam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/marklam/index.json"
+    - name: Publish Avalonia.FuncUI to GitHub packages 
+      run: dotnet nuget push src/Avalonia.FuncUI/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+    - name: Publish Avalonia.FuncUI.DSL to GitHub packages 
+      run: dotnet nuget push src/Avalonia.FuncUI.DSL/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+    - name: Publish Avalonia.Elmish to GitHub packages 
+      run: dotnet nuget push src/Avalonia.FuncUI.Elmish/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
