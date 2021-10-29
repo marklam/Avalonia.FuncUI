@@ -25,10 +25,10 @@ jobs:
     - name: Pack
       run: dotnet pack src/Avalonia.FuncUI.sln -c Release
     - name: Prep packages
-      run: dotnet nuget add source --username marklam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/marklam/index.json"
+      run: dotnet nuget add source --username marklam --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/marklam/index.json"
     - name: Publish Avalonia.FuncUI to GitHub packages 
-      run: dotnet nuget push src/Avalonia.FuncUI/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+      run: dotnet nuget push src/Avalonia.FuncUI/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }}  --source "github"
     - name: Publish Avalonia.FuncUI.DSL to GitHub packages 
-      run: dotnet nuget push src/Avalonia.FuncUI.DSL/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+      run: dotnet nuget push src/Avalonia.FuncUI.DSL/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }}  --source "github"
     - name: Publish Avalonia.Elmish to GitHub packages 
-      run: dotnet nuget push src/Avalonia.FuncUI.Elmish/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+      run: dotnet nuget push src/Avalonia.FuncUI.Elmish/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }}  --source "github"
