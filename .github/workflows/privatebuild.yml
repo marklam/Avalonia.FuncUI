@@ -28,15 +28,18 @@ jobs:
           PROJECT_FILE_PATH: src/Avalonia.FuncUI/Avalonia.FuncUI.fsproj
           NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
           NUGET_SOURCE: https://nuget.pkg.github.com/marklam
+          INCLUDE_SYMBOLS: true
     - name: Publish Avalonia.FuncUI.DSL
       uses: rohith/publish-nuget@v2
       with:
           PROJECT_FILE_PATH: src/Avalonia.FuncUI.DSL/Avalonia.FuncUI.DSL.fsproj
           NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
           NUGET_SOURCE: https://nuget.pkg.github.com/marklam
+          INCLUDE_SYMBOLS: true
     - name: Publish Avalonia.FuncUI.Elmish
       uses: rohith/publish-nuget@v2
       with:
           PROJECT_FILE_PATH: src/Avalonia.FuncUI.Elmish/Avalonia.FuncUI.Elmish.fsproj
           NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
           NUGET_SOURCE: https://nuget.pkg.github.com/marklam
+          INCLUDE_SYMBOLS: true
