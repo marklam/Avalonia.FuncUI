@@ -1,0 +1,42 @@
+name: PrivateBuild
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore src/Avalonia.FuncUI.sln
+    - name: Build
+      run: dotnet build src/Avalonia.FuncUI.sln --no-restore
+    - name: Test
+      run: dotnet test src/Avalonia.FuncUI.sln --no-build --verbosity normal
+    - name: Publish Avalonia.FuncUI
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+          PROJECT_FILE_PATH: src/Avalonia.FuncUI/Avalonia.FuncUI.fsproj
+          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
+          NUGET_SOURCE: https://nuget.pkg.github.com/marklam/index.json
+    - name: Publish Avalonia.FuncUI.DSL
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+          PROJECT_FILE_PATH: src/Avalonia.FuncUI.DSL/Avalonia.FuncUI.DSL.fsproj
+          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
+          NUGET_SOURCE: https://nuget.pkg.github.com/marklam/index.json
+    - name: Publish Avalonia.FuncUI.Elmish
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+          PROJECT_FILE_PATH: src/Avalonia.FuncUI.Elmish/Avalonia.FuncUI.Elmish.fsproj
+          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
+          NUGET_SOURCE: https://nuget.pkg.github.com/marklam/index.json
