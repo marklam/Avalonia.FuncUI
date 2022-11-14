@@ -12,7 +12,7 @@ module Main =
                 let state = ctx.useState 0
 
                 ScrollViewer.create [
-                    ScrollViewer.content [
+                    ScrollViewer.content (
                         DockPanel.create [
                             DockPanel.children [
                                 Button.create [
@@ -61,5 +61,5 @@ module Main =
                                 ]
                             ]
                         ]
-                    ]
+                    )
                 ])
