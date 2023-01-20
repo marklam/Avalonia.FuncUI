@@ -2,6 +2,7 @@ source https://api.nuget.org/v3/index.json
 
 storage: none
 framework: auto-detect
-nuget Avalonia.Desktop 0.10.15
-nuget JaggerJo.Avalonia.FuncUI 0.5.3
-nuget JaggerJo.Avalonia.FuncUI.DSL 0.5.3
+
+nuget FSharp.Core
+nuget JaggerJo.Avalonia.FuncUI     0.5.3 strategy:min
+nuget JaggerJo.Avalonia.FuncUI.DSL 0.5.3 strategy:min
