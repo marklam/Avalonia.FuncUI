@@ -51,6 +51,12 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Examples.CounterApp", "Exam
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Avalonia.FuncUI.Templates", "Avalonia.FuncUI.Templates\Avalonia.FuncUI.Templates.fsproj", "{A0158F2D-0EA1-4D4B-9958-D3A364FC1C36}"
 EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "WinAppLocalFuncUI", "WinAppLocalFuncUI\WinAppLocalFuncUI.fsproj", "{C1FB8569-2289-42BB-BD96-5896976AE67E}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "WinAppNugetFuncUI", "WinAppNugetFuncUI\WinAppNugetFuncUI.fsproj", "{E60E140F-2154-4597-AE03-0AA4E2DD1790}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "WinAppPaketFuncUI", "WinAppPaketFuncUI\WinAppPaketFuncUI.fsproj", "{F86AC9D7-CABC-4E9B-95C2-F77C5DED6751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +139,18 @@ Global
 		{A0158F2D-0EA1-4D4B-9958-D3A364FC1C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0158F2D-0EA1-4D4B-9958-D3A364FC1C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0158F2D-0EA1-4D4B-9958-D3A364FC1C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1FB8569-2289-42BB-BD96-5896976AE67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1FB8569-2289-42BB-BD96-5896976AE67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1FB8569-2289-42BB-BD96-5896976AE67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1FB8569-2289-42BB-BD96-5896976AE67E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E60E140F-2154-4597-AE03-0AA4E2DD1790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E60E140F-2154-4597-AE03-0AA4E2DD1790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E60E140F-2154-4597-AE03-0AA4E2DD1790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E60E140F-2154-4597-AE03-0AA4E2DD1790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86AC9D7-CABC-4E9B-95C2-F77C5DED6751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86AC9D7-CABC-4E9B-95C2-F77C5DED6751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86AC9D7-CABC-4E9B-95C2-F77C5DED6751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86AC9D7-CABC-4E9B-95C2-F77C5DED6751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
